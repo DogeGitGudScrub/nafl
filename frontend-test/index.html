@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Liver Disease Prediction Tool</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>🏥 Liver Disease Prediction Tool</h1>
+            <p>Advanced AI-powered analysis using clinical lab values and symptoms</p>
+        </header>
+
+        <form id="predictionForm" class="prediction-form">
+            <!-- Demographics Section -->
+            <section class="form-section">
+                <h2>👤 Demographics</h2>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="age">Age</label>
+                        <input type="number" id="age" name="age" min="1" max="120" required>
+                        <span class="unit">years</span>
+                    </div>
+                    <div class="form-group">
+                        <label for="gender">Gender</label>
+                        <select id="gender" name="gender" required>
+                            <option value="">Select Gender</option>
+                            <option value="1">Male</option>
+                            <option value="0">Female</option>
+                        </select>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Lab Values Section -->
+            <section class="form-section">
+                <h2>🧪 Laboratory Values</h2>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="total_bilirubin">Total Bilirubin</label>
+                        <input type="number" id="total_bilirubin" name="total_bilirubin" step="0.1" min="0" max="50">
+                        <span class="unit">mg/dL</span>
+                        <small>Normal: 0.2-1.2 mg/dL</small>
+                    </div>
+                    <div class="form-group">
+                        <label for="direct_bilirubin">Direct Bilirubin</label>
+                        <input type="number" id="direct_bilirubin" name="direct_bilirubin" step="0.1" min="0" max="20">
+                        <span class="unit">mg/dL</span>
+                        <small>Normal: 0.0-0.3 mg/dL</small>
+                    </div>
+                </div>
+                
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="alt_sgpt">ALT (SGPT)</label>
+                        <input type="number" id="alt_sgpt" name="alt_sgpt" step="1" min="0" max="1000">
+                        <span class="unit">U/L</span>
+                        <small>Normal: 7-56 U/L</small>
+                    </div>
+                    <div class="form-group">
+                        <label for="ast_sgot">AST (SGOT)</label>
+                        <input type="number" id="ast_sgot" name="ast_sgot" step="1" min="0" max="1000">
+                        <span class="unit">U/L</span>
+                        <small>Normal: 10-40 U/L</small>
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="alkaline_phosphatase">Alkaline Phosphatase</label>
+                        <input type="number" id="alkaline_phosphatase" name="alkaline_phosphatase" step="1" min="0" max="2000">
+                        <span class="unit">U/L</span>
+                        <small>Normal: 44-147 U/L</small>
+                    </div>
+                    <div class="form-group">
+                        <label for="albumin">Albumin</label>
+                        <input type="number" id="albumin" name="albumin" step="0.1" min="0" max="10">
+                        <span class="unit">g/dL</span>
+                        <small>Normal: 3.5-5.0 g/dL</small>
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="total_proteins">Total Proteins</label>
+                        <input type="number" id="total_proteins" name="total_proteins" step="0.1" min="0" max="15">
+                        <span class="unit">g/dL</span>
+                        <small>Normal: 6.0-8.3 g/dL</small>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Symptoms Section -->
+            <section class="form-section">
+                <h2>🩺 Symptoms</h2>
+                <div class="checkbox-grid">
+                    <label class="checkbox-item">
+                        <input type="checkbox" name="has_fatigue" value="1">
+                        <span class="checkmark"></span>
+                        Fatigue
+                    </label>
+                    <label class="checkbox-item">
+                        <input type="checkbox" name="has_pain" value="1">
+                        <span class="checkmark"></span>
+                        Abdominal Pain
+                    </label>
+                    <label class="checkbox-item">
+                        <input type="checkbox" name="has_jaundice" value="1">
+                        <span class="checkmark"></span>
+                        Jaundice (Yellowing)
+                    </label>
+                    <label class="checkbox-item">
+                        <input type="checkbox" name="has_nausea" value="1">
+                        <span class="checkmark"></span>
+                        Nausea
+                    </label>
+                    <label class="checkbox-item">
+                        <input type="checkbox" name="has_itching" value="1">
+                        <span class="checkmark"></span>
+                        Itching
+                    </label>
+                    <label class="checkbox-item">
+                        <input type="checkbox" name="has_bleeding" value="1">
+                        <span class="checkmark"></span>
+                        Easy Bleeding
+                    </label>
+                    <label class="checkbox-item">
+                        <input type="checkbox" name="has_edema" value="1">
+                        <span class="checkmark"></span>
+                        Swelling (Edema)
+                    </label>
+                </div>
+            </section>
+
+            <!-- Risk Factors Section -->
+            <section class="form-section">
+                <h2>⚠️ Risk Factors</h2>
+                <div class="checkbox-grid">
+                    <label class="checkbox-item">
+                        <input type="checkbox" name="has_alcoholism" value="1">
+                        <span class="checkmark"></span>
+                        History of Alcoholism
+                    </label>
+                    <label class="checkbox-item">
+                        <input type="checkbox" name="has_diabetes" value="1">
+                        <span class="checkmark"></span>
+                        Diabetes
+                    </label>
+                    <label class="checkbox-item">
+                        <input type="checkbox" name="has_obesity" value="1">
+                        <span class="checkmark"></span>
+                        Obesity
+                    </label>
+                    <label class="checkbox-item">
+                        <input type="checkbox" name="has_hepatitis_history" value="1">
+                        <span class="checkmark"></span>
+                        Hepatitis History
+                    </label>
+                    <label class="checkbox-item">
+                        <input type="checkbox" name="has_surgery_history" value="1">
+                        <span class="checkmark"></span>
+                        Previous Surgery
+                    </label>
+                </div>
+            </section>
+
+            <!-- Submit Section -->
+            <section class="form-section">
+                <button type="submit" class="predict-btn">
+                    🔬 Analyze Risk
+                </button>
+                <button type="button" class="clear-btn" onclick="clearForm()">
+                    🗑️ Clear Form
+                </button>
+            </section>
+        </form>
+
+        <!-- Results Section -->
+        <div id="results" class="results-section" style="display: none;">
+            <h2>📊 Prediction Results</h2>
+            <div id="resultContent"></div>
+        </div>
+
+        <!-- Footer -->
+        <footer>
+            <p>⚠️ <strong>Disclaimer:</strong> This tool is for educational purposes only. Always consult healthcare professionals for medical advice.</p>
+            <p>Powered by XGBoost AI • Trained on 31,000+ clinical samples</p>
+        </footer>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

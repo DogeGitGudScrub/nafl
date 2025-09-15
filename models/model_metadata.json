@@ -1,0 +1,105 @@
+{
+  "model_type": "XGBoost Classifier",
+  "objective": "Liver Disease Prediction",
+  "creation_date": "2025-09-05T17:50:41.707344",
+  "training_samples": 21833,
+  "validation_samples": 6269,
+  "test_samples": 3089,
+  "features": [
+    "age",
+    "gender_male",
+    "total_bilirubin",
+    "direct_bilirubin",
+    "alkaline_phosphatase",
+    "alt_sgpt",
+    "ast_sgot",
+    "total_proteins",
+    "albumin",
+    "ag_ratio",
+    "has_fatigue",
+    "has_pain",
+    "has_jaundice",
+    "has_nausea",
+    "has_itching",
+    "has_bleeding",
+    "has_edema",
+    "has_alcoholism",
+    "has_diabetes",
+    "has_obesity",
+    "has_hepatitis_history",
+    "has_surgery_history",
+    "bilirubin_elevated",
+    "enzymes_elevated",
+    "proteins_low",
+    "multiple_symptoms",
+    "high_risk_profile",
+    "source_lpd",
+    "source_hepar"
+  ],
+  "performance_metrics": {
+    "training_auc": 0.9998394683397583,
+    "validation_auc": 0.9998419924517112,
+    "test_auc": 0.9990221015731874,
+    "sensitivity": 0.9954400364797081,
+    "specificity": 0.9910714285714286,
+    "ppv": 0.9963486992240986,
+    "npv": 0.9888641425389755
+  },
+  "datasets_used": {
+    "lpd_samples": 21483,
+    "hepar_samples": 350,
+    "total_training": 21833
+  },
+  "top_features": [
+    {
+      "feature": "direct_bilirubin",
+      "importance": 0.11728781461715698,
+      "category": "Lab Values"
+    },
+    {
+      "feature": "total_bilirubin",
+      "importance": 0.09260863810777664,
+      "category": "Lab Values"
+    },
+    {
+      "feature": "albumin",
+      "importance": 0.07719899713993073,
+      "category": "Lab Values"
+    },
+    {
+      "feature": "alkaline_phosphatase",
+      "importance": 0.07420799136161804,
+      "category": "Lab Values"
+    },
+    {
+      "feature": "alt_sgpt",
+      "importance": 0.07358933240175247,
+      "category": "Lab Values"
+    },
+    {
+      "feature": "enzymes_elevated",
+      "importance": 0.06898569315671921,
+      "category": "Derived Features"
+    },
+    {
+      "feature": "ag_ratio",
+      "importance": 0.06878378987312317,
+      "category": "Lab Values"
+    },
+    {
+      "feature": "total_proteins",
+      "importance": 0.062196873128414154,
+      "category": "Lab Values"
+    },
+    {
+      "feature": "ast_sgot",
+      "importance": 0.05946968123316765,
+      "category": "Lab Values"
+    },
+    {
+      "feature": "source_lpd",
+      "importance": 0.05100725591182709,
+      "category": "Dataset Source"
+    }
+  ]
+}
